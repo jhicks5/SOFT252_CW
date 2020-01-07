@@ -41,7 +41,7 @@ public class CreateDocAppoints extends javax.swing.JFrame {
 
         lblFormTitle.setText("Create Appointment");
 
-        lblPatientName.setText("Patient Name:");
+        lblPatientName.setText("Patient ID:");
 
         txtPatientName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +92,7 @@ public class CreateDocAppoints extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblFormTitle)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

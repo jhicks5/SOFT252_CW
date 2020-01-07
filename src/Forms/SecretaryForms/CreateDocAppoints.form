@@ -53,7 +53,7 @@
                       <Component id="lblFormTitle" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,7 +102,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPatientName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Patient Name:"/>
+        <Property name="text" type="java.lang.String" value="Patient ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPatientName">
