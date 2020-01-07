@@ -1,0 +1,175 @@
+[
+  {
+    "patients": [
+      {
+        "id": "P0001",
+        "firstname": "John",
+        "lastname": "Smith",
+        "gender": "Male",
+        "age": "24",
+        "address": {
+          "housenoname": "45",
+          "postcode": "PL14DF"
+        }
+      },
+      {
+        "id": "P0002",
+        "firstname": "Deborah",
+        "lastname": "Ding",
+        "gender": "Female",
+        "age": "29",
+        "address": {
+          "housenoname": "38",
+          "postcode": "PL30HJ"
+        }
+      }
+    ]
+  },
+  {
+    "doctors": [
+      {
+        "id": "D0001",
+        "firstname": "David",
+        "lastname": "Jason",
+        "address": {
+          "housenoname": "45",
+          "postcode": "PL14DF"
+        }
+      },
+      {
+        "id": "D0002",
+        "firstname": "Jennifer",
+        "lastname": "Pigglesby",
+        "address": {
+          "housenoname": "2",
+          "postcode": "PL60JS"
+        }
+      }
+    ]
+  },
+  {
+    "administrators": [
+      {
+        "id": "A0001",
+        "firstname": "Phil",
+        "lastname": "Swift",
+        "address": {
+          "housenoname": "3",
+          "postcode": "PL80KL"
+        }
+      },
+      {
+        "id": "A0002",
+        "firstname": "John",
+        "lastname": "Andrews",
+        "address": {
+          "housenoname": "2",
+          "postcode": "PL37UH"
+        }
+      }
+    ]
+  },
+  {
+    "secretaries": [
+      {
+        "id": "S0001",
+        "firstname": "Angela",
+        "lastname": "Philips",
+        "address": {
+          "housenoname": "13",
+          "postcode": "PL28IH"
+        }
+      },
+      {
+        "id": "S0002",
+        "firstname": "Adam",
+        "lastname": "Thompson",
+        "address": {
+          "housenoname": "2",
+          "postcode": "PL40AL"
+        }
+      }
+    ]
+  },
+  {
+    "docfeedback": [
+      {
+        "doctorid": "D0001",
+        "rating": "4.8",
+        "notes": "Excellent service, prescribed exactly what I needed"
+      },
+      {
+        "docterid": "D0002",
+        "rating": "3.5",
+        "notes": "Average service"
+      }
+    ]
+  },
+  {
+    "accountrequest": [
+      {
+        "firstname": "Debbie",
+        "lastname": "Reynolds",
+        "address": {
+          "housenoname": "5",
+          "postcode": "PL61DG"
+        }
+      },
+      {
+        "firstname": "Jamie",
+        "lastname": "",
+        "address": {
+          "housenoname": "5",
+          "postcode": "PL61DG"
+        }
+      }
+    ]
+  },
+  {
+    "appointments": [
+      {
+        "doctorid": "D001",
+        "patientid": "P001",
+        "possibledate": "13/12/2019"
+      },
+      {
+        "doctorid": "D002",
+        "patientid": "P002",
+        "possibledate": "15/12/2019"
+      }
+
+    ]
+  },
+  {
+    "prescriptions": [
+      {
+        "doctorid": "D001",
+        "patientid": "P001",
+        "doctornotes": "Must come back for more after two weeks",
+        "medicine": "Amoxicillin",
+        "dosage": "Two tablets daily"
+      },
+      {
+        "doctorid": "D002",
+        "patientid": "P002",
+        "doctornotes": null,
+        "medicine": "Cephalexin",
+        "dosage": "One tablet daily"
+      }
+    ]
+  },
+  {
+    "Medicines": [
+      {
+        "name": "Amoxicillin",
+        "quantity": "30"
+      },
+      {
+        "name": "Cephalexin",
+        "quantity": "34"
+      }
+    ]
+  }
+]
+
+
