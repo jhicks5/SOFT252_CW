@@ -27,25 +27,25 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+              <Component id="btnRemAccount" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton4" min="-2" pref="167" max="-2" attributes="0"/>
+                      <Component id="btnHistory" min="-2" pref="167" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="167" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="btnReqApp" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="btnCurApp" min="-2" pref="167" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton3" min="-2" pref="167" max="-2" attributes="0"/>
-                          <Component id="jButton5" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="btnDocFeedback" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="btnPrescripts" min="-2" pref="167" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -59,20 +59,20 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRemAccount" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
+                  <Component id="btnCurApp" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
+                  <Component id="btnDocFeedback" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
+                  <Component id="btnReqApp" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
+                  <Component id="btnPrescripts" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton4" min="-2" pref="69" max="-2" attributes="0"/>
+              <Component id="btnHistory" min="-2" pref="69" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -84,35 +84,53 @@
         <Property name="text" type="java.lang.String" value="Home"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnReqApp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReqAppActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnCurApp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Current Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCurAppActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnDocFeedback">
       <Properties>
         <Property name="text" type="java.lang.String" value="Doctor Feedback"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDocFeedbackActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnHistory">
       <Properties>
         <Property name="text" type="java.lang.String" value="History"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistoryActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="btnPrescripts">
       <Properties>
         <Property name="text" type="java.lang.String" value="Prescription"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrescriptsActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="btnRemAccount">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove Account"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemAccountActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

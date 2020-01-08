@@ -30,7 +30,7 @@ public class Appointments extends javax.swing.JFrame {
         txtDoctorID = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstAppoints = new javax.swing.JList<>();
-        btnHome = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         lblAppoints = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,7 +43,12 @@ public class Appointments extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(lstAppoints);
 
-        btnHome.setText("Home");
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblAppoints.setText("Appointments for:");
 
@@ -60,7 +65,7 @@ public class Appointments extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtDoctorID, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(137, 137, 137)
-                        .addComponent(btnHome)
+                        .addComponent(btnBack)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -71,7 +76,7 @@ public class Appointments extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAppoints)
                     .addComponent(txtDoctorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHome))
+                    .addComponent(btnBack))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addContainerGap())
@@ -84,6 +89,12 @@ public class Appointments extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtDoctorIDActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new DoctorHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,7 +132,7 @@ public class Appointments extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnBack;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAppoints;
     private javax.swing.JList<String> lstAppoints;

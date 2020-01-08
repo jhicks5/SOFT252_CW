@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package usersdata;
-
+import Forms.SecretaryForms.*;
 /**
  *
  * @author joshh
@@ -44,4 +44,8 @@ public class SecretaryUser implements UserInt{
         this.address = address;
     }
     
+    public void secretaryLogin(){
+        SecretaryHome homePage = new SecretaryHome();
+        homePage.setVisible(true);
+    }
 }

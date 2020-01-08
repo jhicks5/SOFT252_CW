@@ -28,29 +28,49 @@ public class DoctorHome extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnPatInfo = new javax.swing.JButton();
+        btnCreateAppoints = new javax.swing.JButton();
+        btnAppoints = new javax.swing.JButton();
+        btnRequestMed = new javax.swing.JButton();
+        btnPrescribeMed = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jButton4.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Patient Info");
-
-        jButton2.setText("Create Appointment");
-
-        jButton3.setText("Appointments");
-
-        jButton5.setText("Request Med");
-
-        jButton6.setText("Prescribe Med");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnPatInfo.setText("Patient Info");
+        btnPatInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnPatInfoActionPerformed(evt);
+            }
+        });
+
+        btnCreateAppoints.setText("Create Appointment");
+        btnCreateAppoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAppointsActionPerformed(evt);
+            }
+        });
+
+        btnAppoints.setText("Appointments");
+        btnAppoints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointsActionPerformed(evt);
+            }
+        });
+
+        btnRequestMed.setText("Request Med");
+        btnRequestMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestMedActionPerformed(evt);
+            }
+        });
+
+        btnPrescribeMed.setText("Prescribe Med");
+        btnPrescribeMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrescribeMedActionPerformed(evt);
             }
         });
 
@@ -66,15 +86,15 @@ public class DoctorHome extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCreateAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnPatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnPrescribeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnRequestMed, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel1)))
@@ -87,23 +107,49 @@ public class DoctorHome extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPatInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCreateAppoints, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRequestMed, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPrescribeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnPrescribeMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrescribeMedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        this.setEnabled(false);
+        new PrescribeMedicine().setVisible(true);
+    }//GEN-LAST:event_btnPrescribeMedActionPerformed
+
+    private void btnPatInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatInfoActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new PatientHistory().setVisible(true);
+    }//GEN-LAST:event_btnPatInfoActionPerformed
+
+    private void btnAppointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointsActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new Appointments().setVisible(true);
+    }//GEN-LAST:event_btnAppointsActionPerformed
+
+    private void btnCreateAppointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointsActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new CreateAppointment().setVisible(true);
+    }//GEN-LAST:event_btnCreateAppointsActionPerformed
+
+    private void btnRequestMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestMedActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new RequestMedicine().setVisible(true);
+    }//GEN-LAST:event_btnRequestMedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,12 +187,12 @@ public class DoctorHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAppoints;
+    private javax.swing.JButton btnCreateAppoints;
+    private javax.swing.JButton btnPatInfo;
+    private javax.swing.JButton btnPrescribeMed;
+    private javax.swing.JButton btnRequestMed;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

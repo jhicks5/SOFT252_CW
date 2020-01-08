@@ -36,17 +36,17 @@
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton2" min="-2" pref="265" max="-2" attributes="0"/>
+                              <Component id="btnCreateAppoints" min="-2" pref="265" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jButton1" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="btnPatInfo" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton3" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="btnAppoints" min="-2" pref="125" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton6" min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="btnPrescribeMed" min="-2" pref="133" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" pref="125" max="-2" attributes="0"/>
+                              <Component id="btnRequestMed" min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -66,15 +66,15 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="btnPatInfo" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="btnAppoints" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="76" max="-2" attributes="0"/>
+              <Component id="btnCreateAppoints" min="-2" pref="76" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton5" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="btnRequestMed" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
+                  <Component id="btnPrescribeMed" alignment="3" min="-2" pref="76" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
@@ -82,32 +82,44 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnPatInfo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Patient Info"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatInfoActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnCreateAppoints">
       <Properties>
         <Property name="text" type="java.lang.String" value="Create Appointment"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateAppointsActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnAppoints">
       <Properties>
         <Property name="text" type="java.lang.String" value="Appointments"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAppointsActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="btnRequestMed">
       <Properties>
         <Property name="text" type="java.lang.String" value="Request Med"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRequestMedActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="btnPrescribeMed">
       <Properties>
         <Property name="text" type="java.lang.String" value="Prescribe Med"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrescribeMedActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

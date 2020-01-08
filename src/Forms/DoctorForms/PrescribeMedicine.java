@@ -34,7 +34,7 @@ public class PrescribeMedicine extends javax.swing.JFrame {
         lblDosage = new javax.swing.JLabel();
         txtPatientID2 = new javax.swing.JTextField();
         btnPrescribe = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,10 +69,10 @@ public class PrescribeMedicine extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -102,7 +102,7 @@ public class PrescribeMedicine extends javax.swing.JFrame {
                                 .addComponent(lblDosage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtPatientID2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnHome))))
+                            .addComponent(btnBack))))
                 .addContainerGap(278, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,7 +123,7 @@ public class PrescribeMedicine extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrescribe)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnHome)
+                .addComponent(btnBack)
                 .addContainerGap(159, Short.MAX_VALUE))
         );
 
@@ -146,10 +146,11 @@ public class PrescribeMedicine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPrescribeActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnHomeActionPerformed
+        this.dispose();
+        new DoctorHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +188,7 @@ public class PrescribeMedicine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPrescribe;
     private javax.swing.JLabel lblDosage;
     private javax.swing.JLabel lblMedicineID;

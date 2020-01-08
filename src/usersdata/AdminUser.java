@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package usersdata;
-
+import Forms.AdminForms.*;
 /**
  *
  * @author joshh
@@ -43,5 +43,10 @@ public class AdminUser implements UserInt
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public void adminLogin(){
+        AdminHome homePage = new AdminHome();
+        homePage.setVisible(true);
     }
 }

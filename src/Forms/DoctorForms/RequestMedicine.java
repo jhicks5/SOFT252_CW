@@ -28,7 +28,7 @@ public class RequestMedicine extends javax.swing.JFrame {
     private void initComponents() {
 
         btnOrder = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         lblMedName = new javax.swing.JLabel();
         txtMedName = new javax.swing.JTextField();
         lblQuantity = new javax.swing.JLabel();
@@ -43,10 +43,10 @@ public class RequestMedicine extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -61,7 +61,7 @@ public class RequestMedicine extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnHome)
+                    .addComponent(btnBack)
                     .addComponent(btnOrder)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -87,7 +87,7 @@ public class RequestMedicine extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(btnOrder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnHome)
+                .addComponent(btnBack)
                 .addContainerGap(151, Short.MAX_VALUE))
         );
 
@@ -98,10 +98,11 @@ public class RequestMedicine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOrderActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_btnHomeActionPerformed
+        new DoctorHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +140,7 @@ public class RequestMedicine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOrder;
     private javax.swing.JLabel lblMedName;
     private javax.swing.JLabel lblQuantity;

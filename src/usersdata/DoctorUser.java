@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package usersdata;
-
+import Forms.DoctorForms.*;
 /**
  *
  * @author joshh
  */
-public class Doctor implements UserInt {
+public class DoctorUser implements UserInt {
     String userID = "";
     String name = "";
     String address = "";
-    public Doctor(String userID, String name, String address)
+    public DoctorUser(String userID, String name, String address)
     {
     this.userID = userID;
     this.name = name;
@@ -42,5 +42,10 @@ public class Doctor implements UserInt {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public void doctorLogin(){
+        DoctorHome homePage = new DoctorHome();
+        homePage.setVisible(true);
     }
 }

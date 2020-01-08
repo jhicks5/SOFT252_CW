@@ -9,6 +9,6 @@ package users.SecretarySystem;
  *
  * @author joshh
  */
-public class CreateAppForFreeDoc {
+public class CreateAppointment {
     
 }

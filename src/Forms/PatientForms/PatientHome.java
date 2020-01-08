@@ -28,28 +28,58 @@ public class PatientHome extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnReqApp = new javax.swing.JButton();
+        btnCurApp = new javax.swing.JButton();
+        btnDocFeedback = new javax.swing.JButton();
+        btnHistory = new javax.swing.JButton();
+        btnPrescripts = new javax.swing.JButton();
+        btnRemAccount = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Home");
 
-        jButton1.setText("Request Appointment");
+        btnReqApp.setText("Request Appointment");
+        btnReqApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReqAppActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Current Appointment");
+        btnCurApp.setText("Current Appointment");
+        btnCurApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCurAppActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Doctor Feedback");
+        btnDocFeedback.setText("Doctor Feedback");
+        btnDocFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDocFeedbackActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("History");
+        btnHistory.setText("History");
+        btnHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistoryActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Prescription");
+        btnPrescripts.setText("Prescription");
+        btnPrescripts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrescriptsActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Remove Account");
+        btnRemAccount.setText("Remove Account");
+        btnRemAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemAccountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,22 +89,22 @@ public class PatientHome extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(199, 199, 199)
-                .addComponent(jButton6)
+                .addComponent(btnRemAccount)
                 .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnReqApp, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCurApp, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnDocFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPrescripts, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,22 +113,58 @@ public class PatientHome extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton6))
+                    .addComponent(btnRemAccount))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCurApp, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDocFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReqApp, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPrescripts, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRemAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemAccountActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new RequestAccountTermination().setVisible(true);
+    }//GEN-LAST:event_btnRemAccountActionPerformed
+
+    private void btnCurAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCurAppActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new ViewAppointment().setVisible(true);
+    }//GEN-LAST:event_btnCurAppActionPerformed
+
+    private void btnReqAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReqAppActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new RequestAppointment().setVisible(true);
+    }//GEN-LAST:event_btnReqAppActionPerformed
+
+    private void btnDocFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocFeedbackActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new GiveFeedback().setVisible(true);
+    }//GEN-LAST:event_btnDocFeedbackActionPerformed
+
+    private void btnPrescriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrescriptsActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new ViewPrescription().setVisible(true);
+    }//GEN-LAST:event_btnPrescriptsActionPerformed
+
+    private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new ViewHistory().setVisible(true);
+    }//GEN-LAST:event_btnHistoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,12 +202,12 @@ public class PatientHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnCurApp;
+    private javax.swing.JButton btnDocFeedback;
+    private javax.swing.JButton btnHistory;
+    private javax.swing.JButton btnPrescripts;
+    private javax.swing.JButton btnRemAccount;
+    private javax.swing.JButton btnReqApp;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

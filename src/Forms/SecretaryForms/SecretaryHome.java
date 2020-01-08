@@ -27,27 +27,57 @@ public class SecretaryHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnCreateAppoint = new javax.swing.JButton();
+        btnGiveMed = new javax.swing.JButton();
+        btnOrderMed = new javax.swing.JButton();
+        btnReqAppoint = new javax.swing.JButton();
+        btnApproveAccCre = new javax.swing.JButton();
+        btnApproveAccDel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Create Appointment");
+        btnCreateAppoint.setText("Create Appointment");
+        btnCreateAppoint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAppointActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Give Medicine");
+        btnGiveMed.setText("Give Medicine");
+        btnGiveMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGiveMedActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Order Medicine");
+        btnOrderMed.setText("Order Medicine");
+        btnOrderMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderMedActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Appointment Requests");
+        btnReqAppoint.setText("Appointment Requests");
+        btnReqAppoint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReqAppointActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Approve New Accounts");
+        btnApproveAccCre.setText("Approve New Accounts");
+        btnApproveAccCre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveAccCreActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Approve Account Deletion");
+        btnApproveAccDel.setText("Approve Account Deletion");
+        btnApproveAccDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApproveAccDelActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Home");
 
@@ -58,8 +88,8 @@ public class SecretaryHome extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnApproveAccDel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnApproveAccCre, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(124, 124, 124))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -69,12 +99,12 @@ public class SecretaryHome extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+                            .addComponent(btnGiveMed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCreateAppoint, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                            .addComponent(btnOrderMed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReqAppoint, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
                         .addGap(0, 30, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -84,21 +114,57 @@ public class SecretaryHome extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4))
+                    .addComponent(btnCreateAppoint)
+                    .addComponent(btnReqAppoint))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnGiveMed)
+                    .addComponent(btnOrderMed))
                 .addGap(57, 57, 57)
-                .addComponent(jButton5)
+                .addComponent(btnApproveAccCre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(btnApproveAccDel)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new CreateAppointment().setVisible(true);
+    }//GEN-LAST:event_btnCreateAppointActionPerformed
+
+    private void btnReqAppointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReqAppointActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new AppointRequests().setVisible(true);
+    }//GEN-LAST:event_btnReqAppointActionPerformed
+
+    private void btnGiveMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiveMedActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new GiveMedicine().setVisible(true);
+    }//GEN-LAST:event_btnGiveMedActionPerformed
+
+    private void btnOrderMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMedActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new OrderMedicine().setVisible(true);
+    }//GEN-LAST:event_btnOrderMedActionPerformed
+
+    private void btnApproveAccCreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveAccCreActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new ApproveAccountCreation().setVisible(true);
+    }//GEN-LAST:event_btnApproveAccCreActionPerformed
+
+    private void btnApproveAccDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveAccDelActionPerformed
+        // TODO add your handling code here:
+        this.setEnabled(false);
+        new ApproveAccountRemoval().setVisible(true);
+    }//GEN-LAST:event_btnApproveAccDelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,12 +202,12 @@ public class SecretaryHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnApproveAccCre;
+    private javax.swing.JButton btnApproveAccDel;
+    private javax.swing.JButton btnCreateAppoint;
+    private javax.swing.JButton btnGiveMed;
+    private javax.swing.JButton btnOrderMed;
+    private javax.swing.JButton btnReqAppoint;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

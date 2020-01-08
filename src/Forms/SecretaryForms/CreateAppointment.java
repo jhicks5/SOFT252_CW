@@ -9,12 +9,12 @@ package Forms.SecretaryForms;
  *
  * @author joshh
  */
-public class CreateDocAppoints extends javax.swing.JFrame {
+public class CreateAppointment extends javax.swing.JFrame {
 
     /**
      * Creates new form CreateDocAppoints
      */
-    public CreateDocAppoints() {
+    public CreateAppointment() {
         initComponents();
     }
 
@@ -33,7 +33,7 @@ public class CreateDocAppoints extends javax.swing.JFrame {
         lblDocName = new javax.swing.JLabel();
         lblAppTime = new javax.swing.JLabel();
         btnCreateApp = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         cmbxDocName = new javax.swing.JComboBox<>();
         cmbxAppTime = new javax.swing.JComboBox<>();
 
@@ -55,7 +55,12 @@ public class CreateDocAppoints extends javax.swing.JFrame {
 
         btnCreateApp.setText("Create Appointment");
 
-        btnCancel.setText("Cancel");
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         cmbxDocName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbxDocName.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +83,7 @@ public class CreateDocAppoints extends javax.swing.JFrame {
                             .addComponent(lblPatientName)
                             .addComponent(lblDocName)
                             .addComponent(lblAppTime)
-                            .addComponent(btnCancel))
+                            .addComponent(btnBack))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -118,7 +123,7 @@ public class CreateDocAppoints extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCreateApp)
-                            .addComponent(btnCancel))
+                            .addComponent(btnBack))
                         .addGap(50, 50, 50))))
         );
 
@@ -132,6 +137,12 @@ public class CreateDocAppoints extends javax.swing.JFrame {
     private void cmbxDocNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxDocNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbxDocNameActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new SecretaryHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,26 +161,27 @@ public class CreateDocAppoints extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateDocAppoints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateDocAppoints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateDocAppoints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateDocAppoints.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateDocAppoints().setVisible(true);
+                new CreateAppointment().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateApp;
     private javax.swing.JComboBox<String> cmbxAppTime;
     private javax.swing.JComboBox<String> cmbxDocName;

@@ -33,7 +33,7 @@ public class GiveMedicine extends javax.swing.JFrame {
         lblMedicine = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +63,12 @@ public class GiveMedicine extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setText("Cancel");
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +93,7 @@ public class GiveMedicine extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCancel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnConfirm)
                                 .addGap(96, 96, 96)))))
@@ -110,7 +115,7 @@ public class GiveMedicine extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirm)
-                    .addComponent(btnCancel))
+                    .addComponent(btnBack))
                 .addGap(68, 68, 68))
         );
 
@@ -128,6 +133,12 @@ public class GiveMedicine extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new SecretaryHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,7 +176,7 @@ public class GiveMedicine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JComboBox<String> cmbxMedicine;
     private javax.swing.JLabel jLabel1;

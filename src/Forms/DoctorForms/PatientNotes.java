@@ -33,7 +33,7 @@ public class PatientNotes extends javax.swing.JFrame {
         txtNotes = new javax.swing.JTextArea();
         lblNotes = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         btnHistory = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,10 +53,10 @@ public class PatientNotes extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -87,8 +87,8 @@ public class PatientNotes extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSave)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnHome)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                                .addComponent(btnBack)))
+                        .addGap(0, 55, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -99,7 +99,7 @@ public class PatientNotes extends javax.swing.JFrame {
                     .addComponent(lblPatientID)
                     .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave)
-                    .addComponent(btnHome)
+                    .addComponent(btnBack)
                     .addComponent(btnHistory))
                 .addGap(18, 18, 18)
                 .addComponent(lblNotes)
@@ -115,9 +115,11 @@ public class PatientNotes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnHomeActionPerformed
+        this.dispose();
+        new DoctorHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
@@ -159,8 +161,8 @@ public class PatientNotes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnHistory;
-    private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSave;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNotes;

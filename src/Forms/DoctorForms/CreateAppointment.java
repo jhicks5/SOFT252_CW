@@ -34,7 +34,7 @@ public class CreateAppointment extends javax.swing.JFrame {
         txtPatientID = new javax.swing.JTextField();
         txtDate = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +62,10 @@ public class CreateAppointment extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -88,10 +88,10 @@ public class CreateAppointment extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPatientID)
                             .addComponent(txtDoctorID, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHome)
+                        .addComponent(btnBack)
                         .addGap(71, 71, 71))))
         );
         layout.setVerticalGroup(
@@ -101,7 +101,7 @@ public class CreateAppointment extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSave)
-                        .addComponent(btnHome))
+                        .addComponent(btnBack))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDoctorID)
                         .addComponent(txtDoctorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -128,10 +128,11 @@ public class CreateAppointment extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_btnHomeActionPerformed
+        new DoctorHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,7 +170,7 @@ public class CreateAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDoctorID;

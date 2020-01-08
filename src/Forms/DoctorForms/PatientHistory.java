@@ -31,7 +31,7 @@ public class PatientHistory extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPatientHistory = new javax.swing.JTable();
         txtPatientID = new javax.swing.JTextField();
-        btnHome = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,10 +51,10 @@ public class PatientHistory extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblPatientHistory);
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -75,7 +75,7 @@ public class PatientHistory extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSearch)
                         .addGap(18, 18, 18)
-                        .addComponent(btnHome)))
+                        .addComponent(btnBack)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -86,7 +86,7 @@ public class PatientHistory extends javax.swing.JFrame {
                     .addComponent(lblPatientID)
                     .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
-                    .addComponent(btnHome))
+                    .addComponent(btnBack))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -95,9 +95,11 @@ public class PatientHistory extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnHomeActionPerformed
+        this.dispose();
+        new DoctorHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,7 +137,7 @@ public class PatientHistory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPatientID;
