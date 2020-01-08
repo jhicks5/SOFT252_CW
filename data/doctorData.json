@@ -3,25 +3,19 @@
     "patients": [
       {
         "id": "P0001",
-        "firstname": "John",
-        "lastname": "Smith",
+        "name": "John Smith",
         "gender": "Male",
         "age": "24",
-        "address": {
-          "housenoname": "45",
-          "postcode": "PL14DF"
-        }
+        "address": "45, PL14DF",
+        "password": "p"
       },
       {
         "id": "P0002",
-        "firstname": "Deborah",
-        "lastname": "Ding",
+        "name": "Deborah Ding",
         "gender": "Female",
         "age": "29",
-        "address": {
-          "housenoname": "38",
-          "postcode": "PL30HJ"
-        }
+        "address": "38, PL30HJ",
+        "password": "p"
       }
     ]
   },
@@ -29,21 +23,15 @@
     "doctors": [
       {
         "id": "D0001",
-        "firstname": "David",
-        "lastname": "Jason",
-        "address": {
-          "housenoname": "45",
-          "postcode": "PL14DF"
-        }
+        "name": "David Jason",
+        "address": "45, PL14DF",
+        "password": "p"
       },
       {
         "id": "D0002",
-        "firstname": "Jennifer",
-        "lastname": "Pigglesby",
-        "address": {
-          "housenoname": "2",
-          "postcode": "PL60JS"
-        }
+        "name": "Jennifer Pigglesby",
+        "address": "2, PL60JS",
+        "password": "p"
       }
     ]
   },
@@ -51,21 +39,15 @@
     "administrators": [
       {
         "id": "A0001",
-        "firstname": "Phil",
-        "lastname": "Swift",
-        "address": {
-          "housenoname": "3",
-          "postcode": "PL80KL"
-        }
+        "name": "Phil Swift",
+        "address": "3, PL80KL",
+        "password": "p"
       },
       {
         "id": "A0002",
-        "firstname": "John",
-        "lastname": "Andrews",
-        "address": {
-          "housenoname": "2",
-          "postcode": "PL37UH"
-        }
+        "name": "John Andrews",
+        "address": "2, PL37UH",
+        "password": "p"
       }
     ]
   },
@@ -73,21 +55,15 @@
     "secretaries": [
       {
         "id": "S0001",
-        "firstname": "Angela",
-        "lastname": "Philips",
-        "address": {
-          "housenoname": "13",
-          "postcode": "PL28IH"
-        }
+        "name": "Angela Phillips",
+        "address": "13, PL28IH",
+        "password": "p"
       },
       {
         "id": "S0002",
-        "firstname": "Adam",
-        "lastname": "Thompson",
-        "address": {
-          "housenoname": "2",
-          "postcode": "PL40AL"
-        }
+        "name": "Adam Thompson",
+        "address": "2, PL40AL",
+        "password": "p"
       }
     ]
   },
@@ -108,20 +84,14 @@
   {
     "accountrequest": [
       {
-        "firstname": "Debbie",
-        "lastname": "Reynolds",
-        "address": {
-          "housenoname": "5",
-          "postcode": "PL61DG"
-        }
+        "name": "Debbie Reynolds",
+        "address": "5, PL61DG",
+        "requesttype": "Delete"
       },
       {
-        "firstname": "Jamie",
-        "lastname": "",
-        "address": {
-          "housenoname": "5",
-          "postcode": "PL61DG"
-        }
+        "name": "Jamie Wright",
+        "address": "5, PL61DG",
+        "requesttype": "Create"
       }
     ]
   },

@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package users;
+package usersdata;
 
 /**
  *
  * @author joshh
  */
-public class AdminUser implements User
-{
+public class Doctor implements UserInt {
     String userID = "";
     String name = "";
     String address = "";
-    public AdminUser(String userID, String name, String address)
+    public Doctor(String userID, String name, String address)
     {
     this.userID = userID;
     this.name = name;

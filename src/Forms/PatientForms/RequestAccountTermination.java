@@ -48,6 +48,11 @@ public class RequestAccountTermination extends javax.swing.JFrame {
         btnreqTermination.setText("Request termination");
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblTitle.setText("Request account termination");
 
@@ -113,6 +118,12 @@ public class RequestAccountTermination extends javax.swing.JFrame {
     private void chkbxConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbxConfirmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkbxConfirmActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new PatientHome().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

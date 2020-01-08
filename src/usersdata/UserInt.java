@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package users;
+package usersdata;
 
 /**
  *
  * @author joshh
  */
-public interface User {
+public interface UserInt {
     String userID = "";
     String name = "";
     String address = "";
-    
-    
 }

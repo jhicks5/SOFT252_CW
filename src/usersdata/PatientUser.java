@@ -3,24 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package users;
-
+package usersdata;
+import Forms.PatientForms.*;
+import Forms.Login;
 /**
  *
  * @author joshh
  */
-public class PatientUser implements User{
+public class PatientUser implements UserInt{
     String userID = "";
     String name = "";
     String address = "";
-    String sex = "";
-    int age;
-    public PatientUser(String userID, String name, String address, String sex, int age)
+    String gender = "";
+    String age = "";
+    
+    public PatientUser(String newID, String newPass){
+        String id = userID;
+        String password = newPass;
+    }
+    
+    public PatientUser(String userID, String name, String address, String gender, String age)
     {
     this.userID = userID;
     this.name = name;
     this.address = address;
-    this.sex = sex;
+    this.gender = gender;
     this.age = age;
     }
     public String getUserID() {
@@ -47,20 +54,25 @@ public class PatientUser implements User{
         this.address = address;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
+    }
+    
+    public void patientLogin(){
+        PatientHome homePage = new PatientHome();
+        homePage.setVisible(true);
     }
     
 }

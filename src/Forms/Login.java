@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Forms;
-
+import javax.swing.JOptionPane;
+import usersdata.*;
 /**
  *
  * @author joshh
@@ -30,9 +31,9 @@ public class Login extends javax.swing.JFrame {
         lblLogin = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
-        txtPass = new javax.swing.JTextField();
         lblTitle = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
+        passtxtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,15 +47,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
-
         lblTitle.setText("Login to Your Account");
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,8 +72,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lblLogin))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                            .addComponent(txtLogin)))
+                            .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                            .addComponent(passtxtPass)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(btnLogin)))
@@ -91,7 +91,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPass)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passtxtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(btnLogin)
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -104,9 +104,22 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginActionPerformed
 
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
+        if ( txtLogin.getText().trim().length() == 0 ){
+            JOptionPane.showMessageDialog(null, "Please enter a username", "Username Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        if ( passtxtPass.getText().trim().length() == 0 ){
+            JOptionPane.showMessageDialog(null, "Please enter a password", "Password Error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        String id = txtLogin.getText();
+        String pass = passtxtPass.getText();
+        User user = new User(id, pass);
+        user.Login(id, pass);
+        this.dispose();
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,7 +161,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPasswordField passtxtPass;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtPass;
     // End of variables declaration//GEN-END:variables
 }

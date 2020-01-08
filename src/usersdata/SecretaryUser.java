@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package users;
+package usersdata;
 
 /**
  *
  * @author joshh
  */
-public class SecretaryUser implements User{
+public class SecretaryUser implements UserInt{
     String userID = "";
     String name = "";
     String address = "";
