@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package Forms.PatientForms;
-
+import users.PatientSystem.ReadAppointment;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JTextArea;
 /**
  *
  * @author joshh
  */
-public class ViewAppointment extends javax.swing.JFrame {
+public class ViewAppointment extends javax.swing.JFrame{
 
     /**
      * Creates new form ViewAppointment
@@ -17,7 +20,12 @@ public class ViewAppointment extends javax.swing.JFrame {
     public ViewAppointment() {
         initComponents();
     }
-
+    
+    @Override
+    public synchronized void addWindowListener(WindowListener l) {
+        super.addWindowListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,13 +42,24 @@ public class ViewAppointment extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         lblTitle.setText("ViewAppointment");
 
         lblAppoints.setText("Your appointments:");
 
+        txtAppoints.setEditable(false);
         txtAppoints.setColumns(20);
         txtAppoints.setRows(5);
+        txtAppoints.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                txtAppointsComponentShown(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtAppoints);
 
         btnBack.setText("Back");
@@ -59,13 +78,13 @@ public class ViewAppointment extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblAppoints)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 114, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -78,8 +97,8 @@ public class ViewAppointment extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAppoints)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(128, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +109,17 @@ public class ViewAppointment extends javax.swing.JFrame {
         this.dispose();
         new PatientHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtAppointsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtAppointsComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAppointsComponentShown
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        ReadAppointment r = new ReadAppointment();
+        String appoint = r.getAppointment();
+        txtAppoints.setText(appoint);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -125,6 +155,8 @@ public class ViewAppointment extends javax.swing.JFrame {
             }
         });
     }
+   
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

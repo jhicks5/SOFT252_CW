@@ -114,7 +114,7 @@ public class User implements UserInt{
                 }
             }
             DoctorUser d = new DoctorUser(id, name, address);
-            System.out.println("ID: "+id+" Name: "+name+" Age: "+age+" Address: "+address);
+            System.out.println("ID: "+id+" Name: "+name+" Address: "+address);
             d.doctorLogin();
         }
         else if (id.charAt(0) == 'S'){
@@ -139,13 +139,13 @@ public class User implements UserInt{
                 }
             }
             SecretaryUser s = new SecretaryUser(id, name, address);
-            System.out.println("ID: "+id+" Name: "+name+" Age: "+age+" Address: "+address);
+            System.out.println("ID: "+id+" Name: "+name+" Address: "+address);
             s.secretaryLogin();
         }
         else{
             Login login = new Login();
             login.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Incorrect Username or Password, ", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Incorrect Username or Password, ", "Invalid Credentials", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

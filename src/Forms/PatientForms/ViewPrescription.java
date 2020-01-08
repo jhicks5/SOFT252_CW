@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Forms.PatientForms;
-
+import users.PatientSystem.ReadPrescription;
 /**
  *
  * @author joshh
@@ -34,8 +34,13 @@ public class ViewPrescription extends javax.swing.JFrame {
         txtPrescripts = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        lblPrescripts.setText("Your perscriptions:");
+        lblPrescripts.setText("Your Prescriptions:");
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -44,7 +49,7 @@ public class ViewPrescription extends javax.swing.JFrame {
             }
         });
 
-        lblTitle.setText("View perscription");
+        lblTitle.setText("View Prescription");
 
         txtPrescripts.setColumns(20);
         txtPrescripts.setRows(5);
@@ -59,13 +64,12 @@ public class ViewPrescription extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblPrescripts)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 104, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -77,9 +81,9 @@ public class ViewPrescription extends javax.swing.JFrame {
                     .addComponent(lblTitle))
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPrescripts))
-                .addContainerGap(122, Short.MAX_VALUE))
+                    .addComponent(lblPrescripts)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +94,13 @@ public class ViewPrescription extends javax.swing.JFrame {
         this.dispose();
         new PatientHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        ReadPrescription r = new ReadPrescription();
+        String appoint = r.getPrescription();
+        txtPrescripts.setText(appoint);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

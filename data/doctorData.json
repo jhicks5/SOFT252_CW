@@ -32,6 +32,12 @@
         "name": "Jennifer Pigglesby",
         "address": "2, PL60JS",
         "password": "p"
+      },
+      {
+        "id": "D0003",
+        "name": "Davie Jones",
+        "address": "9, PL05SD",
+        "password": "p"
       }
     ]
   },
@@ -71,12 +77,12 @@
     "docfeedback": [
       {
         "doctorid": "D0001",
-        "rating": "4.8",
+        "rating": "5",
         "notes": "Excellent service, prescribed exactly what I needed"
       },
       {
         "docterid": "D0002",
-        "rating": "3.5",
+        "rating": "3",
         "notes": "Average service"
       }
     ]
@@ -98,30 +104,34 @@
   {
     "appointments": [
       {
-        "doctorid": "D001",
-        "patientid": "P001",
-        "possibledate": "13/12/2019"
+        "doctorid": "D0001",
+        "patientid": "P0001",
+        "date": "13/12/2019"
       },
       {
-        "doctorid": "D002",
-        "patientid": "P002",
-        "possibledate": "15/12/2019"
+        "doctorid": "D0002",
+        "patientid": "P0001",
+        "date": "15/12/2019"
+      },
+      {
+        "doctorid": "D0001",
+        "patientid": "P0002",
+        "date": "28/12/2019"
       }
-
     ]
   },
   {
     "prescriptions": [
       {
-        "doctorid": "D001",
-        "patientid": "P001",
+        "doctorid": "D0001",
+        "patientid": "P0001",
         "doctornotes": "Must come back for more after two weeks",
         "medicine": "Amoxicillin",
         "dosage": "Two tablets daily"
       },
       {
-        "doctorid": "D002",
-        "patientid": "P002",
+        "doctorid": "D0002",
+        "patientid": "P0002",
         "doctornotes": null,
         "medicine": "Cephalexin",
         "dosage": "One tablet daily"
@@ -141,5 +151,3 @@
     ]
   }
 ]
-
-

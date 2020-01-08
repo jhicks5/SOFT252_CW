@@ -11,11 +11,11 @@ import Forms.PatientForms.*;
  * @author joshh
  */
 public class PatientUser implements UserInt{
-    String userID = "";
-    String name = "";
-    String address = "";
-    String gender = "";
-    String age = "";
+    public static String userID = "";
+    public String name = "";
+    public String address = "";
+    public String gender = "";
+    public String age = "";
     
     public PatientUser(String newID, String newPass){
         String id = userID;
