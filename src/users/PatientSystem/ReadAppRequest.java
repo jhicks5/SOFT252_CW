@@ -28,9 +28,10 @@ public class ReadAppRequest {
             try {
                 JSONObject curItem = dataArray.getJSONObject(i);
                 appoints = curItem.getJSONArray("appointments");
-                newData = appoints.getJSONObject(0);
+                //newData = appoints.getJSONObject(0);
                 newData.put("doctorid", docId);
                 newData.put("patientid", patId);
+                newData.put("attended", "false");
                 
                 DateTime dt = new DateTime();
                 int month = dt.getMonthOfYear();
@@ -46,7 +47,7 @@ public class ReadAppRequest {
                 newData.put("date", formatDate);
                 newData.put("requested", "true");
                 appoints.put(newData);
-                dataArray.put(appoints);
+                //dataArray.put(appoints);
                 break;
                 }
             catch(Exception e){
