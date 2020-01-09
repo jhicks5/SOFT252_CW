@@ -147,14 +147,28 @@ public class RequestAccountTermination extends javax.swing.JFrame {
     private void btnreqTerminationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreqTerminationActionPerformed
         // TODO add your handling code here:
         if(chkbxConfirm.isSelected()){
-            String p = PatientUser.userID;
+            String userId = PatientUser.userID;
             String givenId = txtUsername.getText();
-            if (Objects.equals(p, givenId)){
+            String userPass = PatientUser.pass;
+            System.out.println("Id: "+userId+" Pass: "+userPass);
+            Boolean passCheck = false;
+            
+            if (Objects.equals(pssPass.getText(), pssPassConfirm.getText())){
+                if(Objects.equals(pssPass.getText(), PatientUser.pass)){
+                    System.out.println("Check Success");
+                    passCheck = true;                    
+                }
+
+            }
+            if (Objects.equals(userId, givenId) && passCheck == true){
                 RequestAccTermination r = new RequestAccTermination();
                 Boolean complete = r.appendToFile(givenId);
                 if (complete = true){
                 JOptionPane.showMessageDialog(null, "Successfully submitted account removal request", "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Credentials Incorrect, Please Check and try again", "Incorrect Credentials", JOptionPane.INFORMATION_MESSAGE);
             }
 
         }

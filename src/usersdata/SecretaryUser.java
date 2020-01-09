@@ -13,11 +13,14 @@ public class SecretaryUser implements UserInt{
     String userID = "";
     String name = "";
     String address = "";
-    public SecretaryUser(String userID, String name, String address)
+    String pass = "";
+    
+    public SecretaryUser(String userID, String name, String address, String pass)
     {
     this.userID = userID;
     this.name = name;
     this.address = address;
+    this.pass = pass;
     }
 
     public String getUserID() {
@@ -42,6 +45,14 @@ public class SecretaryUser implements UserInt{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public String getPass(){
+        return pass;
+    }
+    
+    public void setPass(String pass){
+        this.pass = pass;
     }
     
     public void secretaryLogin(){

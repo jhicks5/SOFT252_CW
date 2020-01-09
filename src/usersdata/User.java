@@ -36,10 +36,10 @@ public class User implements UserInt{
         gender = newGender;
     }
     
-    public void Login(String id, String Pass){
+    public void Login(String id, String userPass){
         String data = AllData.getJSONData();
         JSONArray dataArray = new JSONArray(data);
-
+        Boolean loginToken = false;
         if (id.charAt(0) == 'P'){
             for (int i = 0; i < data.length(); i++){
                 try {
@@ -49,13 +49,16 @@ public class User implements UserInt{
                     for (int j = 0; j < patients.length(); j++){
                         var currentPat = patients.getJSONObject(j);
                         String patId = currentPat.getString("id");
+                        String patPass = currentPat.getString("password");
 
-                        if(Objects.equals(patId, id)){
+                        if(Objects.equals(patId, id) && Objects.equals(patPass, userPass)){
                             id = currentPat.getString("id");
                             name = currentPat.getString("name");
                             gender = currentPat.getString("gender");
                             age = currentPat.getString("age");
                             address = currentPat.getString("address");
+                            pass = currentPat.getString("password");
+                            loginToken = true;
                         }
                     }
                 }
@@ -63,9 +66,16 @@ public class User implements UserInt{
                     continue;
                 }
             }
-            PatientUser p = new PatientUser(id, name, gender, age, address);
-            System.out.println("ID is: "+id+"Name: "+name+age+gender);
-            p.patientLogin();
+            PatientUser p = new PatientUser(id, name, gender, age, address, pass);
+            System.out.println("ID is: "+id+"Name: "+name+age+gender+"PASSWORD "+pass);
+            
+            if (loginToken == true){
+                p.patientLogin();            
+            }
+            else{
+                loginFail();
+            }
+
         }
         else if (id.charAt(0) == 'A'){
             for (int i = 0; i < data.length(); i++){
@@ -76,11 +86,14 @@ public class User implements UserInt{
                     for (int j = 0; j < admins.length(); j++){
                         var currentAdm = admins.getJSONObject(j);
                         String admId = currentAdm.getString("id");
-
-                        if(Objects.equals(admId, id)){
+                        String admPass = currentAdm.getString("password");
+                        
+                        if(Objects.equals(admId, id) && Objects.equals(admPass, userPass)){
                             id = currentAdm.getString("id");
                             name = currentAdm.getString("name");
                             address = currentAdm.getString("address");
+                            pass = currentAdm.getString("password");
+                            loginToken = true;
                         }
                     }
                 }
@@ -88,9 +101,16 @@ public class User implements UserInt{
                     continue;
                 }
             }
-            AdminUser a = new AdminUser(id, name, address);
+            AdminUser a = new AdminUser(id, name, address, pass);
             System.out.println("ID is: "+id+"Name: "+name+address);
-            a.adminLogin();
+          
+            if(loginToken == true){
+                a.adminLogin();
+            }
+            else{
+                loginFail();
+            }
+
         }
         else if (id.charAt(0) == 'D'){
             for (int i = 0; i < data.length(); i++){
@@ -101,11 +121,14 @@ public class User implements UserInt{
                     for (int j = 0; j < doctors.length(); j++){
                         var currentDoc = doctors.getJSONObject(j);
                         String docId = currentDoc.getString("id");
-
-                        if(Objects.equals(docId, id)){
+                        String docPass = currentDoc.getString("password");
+                        
+                        if(Objects.equals(docId, id) && Objects.equals(docPass, userPass)){
                             id = currentDoc.getString("id");
                             name = currentDoc.getString("name");
                             address = currentDoc.getString("address");
+                            pass = currentDoc.getString("password");
+                            loginToken = true;
                         }
                     }
                 }
@@ -113,9 +136,15 @@ public class User implements UserInt{
                     continue;
                 }
             }
-            DoctorUser d = new DoctorUser(id, name, address);
+            DoctorUser d = new DoctorUser(id, name, address, pass);
             System.out.println("ID: "+id+" Name: "+name+" Address: "+address);
-            d.doctorLogin();
+            
+            if (loginToken == true){
+                d.doctorLogin();
+            }
+            else{
+                loginFail();
+            }
         }
         else if (id.charAt(0) == 'S'){
             for (int i = 0; i < data.length(); i++){
@@ -126,11 +155,14 @@ public class User implements UserInt{
                     for (int j = 0; j < secretaries.length(); j++){
                         var currentSec = secretaries.getJSONObject(j);
                         String secId = currentSec.getString("id");
+                        String secPass = currentSec.getString("password");
 
-                        if(Objects.equals(secId, id)){
+                        if(Objects.equals(secId, id) && Objects.equals(secPass, userPass)){
                             id = currentSec.getString("id");
                             name = currentSec.getString("name");
                             address = currentSec.getString("address");
+                            pass = currentSec.getString("password");
+                            loginToken = true;
                         }
                     }
                 }
@@ -138,14 +170,23 @@ public class User implements UserInt{
                     continue;
                 }
             }
-            SecretaryUser s = new SecretaryUser(id, name, address);
+            SecretaryUser s = new SecretaryUser(id, name, address, pass);
             System.out.println("ID: "+id+" Name: "+name+" Address: "+address);
-            s.secretaryLogin();
+            if (loginToken == true){
+                s.secretaryLogin();               
+            }
+            else{
+                loginFail();
+            }
         }
         else{
-            Login login = new Login();
-            login.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Incorrect Username or Password, ", "Invalid Credentials", JOptionPane.INFORMATION_MESSAGE);
+            loginFail();
         }
+    }
+    
+    public void loginFail(){
+        Login login = new Login();
+        login.setVisible(true);
+        JOptionPane.showMessageDialog(null, "Incorrect Username or Password, ", "Invalid Credentials", JOptionPane.INFORMATION_MESSAGE);
     }
 }

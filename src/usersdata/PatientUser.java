@@ -16,19 +16,21 @@ public class PatientUser implements UserInt{
     public String address = "";
     public String gender = "";
     public String age = "";
+    public static String pass = "";
     
     public PatientUser(String newID, String newPass){
         String id = userID;
         String password = newPass;
     }
     
-    public PatientUser(String userID, String name, String address, String gender, String age)
+    public PatientUser(String userID, String name, String address, String gender, String age, String pass)
     {
     this.userID = userID;
     this.name = name;
     this.address = address;
     this.gender = gender;
     this.age = age;
+    this.pass = pass;
     }
     public String getUserID() {
         return userID;
@@ -68,6 +70,14 @@ public class PatientUser implements UserInt{
 
     public void setAge(String age) {
         this.age = age;
+    }
+    
+    public String getPass(){
+        return pass;
+    }
+    
+    public void setPass(String pass){
+        this.pass = pass;
     }
     
     public void patientLogin(){
