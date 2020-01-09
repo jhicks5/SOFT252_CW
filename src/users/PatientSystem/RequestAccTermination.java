@@ -26,12 +26,9 @@ public class RequestAccTermination {
         try {
             JSONObject curItem = dataArray.getJSONObject(i);
             accRequests = curItem.getJSONArray("accountrequest");
-            //int length = curItem.length() + 1;
-            //newData = accRequests.optJSONObject(length);
             newData.put("id", userId);
             newData.put("requesttype", "Delete");
             accRequests.put(newData);
-            dataArray.put(accRequests);
             break;
             }
         catch(Exception e){

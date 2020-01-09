@@ -39,31 +39,26 @@ public class AppendFeedback {
     
     public Boolean appendToFile(String docId, String rating, String notes){
         JSONObject newData = new JSONObject();
-        JSONArray docFeedback;
-        //docFeedback = new JSONArray();
+        JSONArray docFeedback = new JSONArray();
         String data = AllData.getJSONData();
         JSONArray dataArray = new JSONArray(data);
         System.out.println(dataArray);
-        Boolean done = false;
-        while(done = false){
-            for (int i = 0; i < data.length(); i++){
-                try {
-                    JSONObject curItem = dataArray.getJSONObject(i);
-                    docFeedback = curItem.getJSONArray("docfeedback");
-                    //newData = docFeedback.getJSONObject(0);
-                    newData.put("doctorid", docId);
-                    newData.put("rating", rating);
-                    newData.put("notes", notes);
-                    //docFeedback.put(newData);
-                    //dataArray.put(docFeedback);
-                    done = true;
-                    }
-                catch(Exception e){
-                    continue;
+        for (int i = 0; i < data.length(); i++){
+            try {
+                JSONObject curItem = dataArray.getJSONObject(i);
+                docFeedback = curItem.getJSONArray("docfeedback");
+                //newData = docFeedback.getJSONObject(0);
+                newData.put("doctorid", docId);
+                newData.put("rating", rating);
+                newData.put("notes", notes);
+                docFeedback.put(newData);
+                //dataArray.put(docFeedback);
+                break;
                 }
+            catch(Exception e){
+                continue;
             }
         }
-
         String dataToAppend = dataArray.toString();
         System.out.println(dataToAppend);
         System.out.println(dataArray);
