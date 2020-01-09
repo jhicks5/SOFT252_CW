@@ -90,13 +90,15 @@
   {
     "accountrequest": [
       {
-        "name": "Debbie Reynolds",
-        "address": "5, PL61DG",
+        "id": "P0010",
         "requesttype": "Delete"
       },
       {
         "name": "Jamie Wright",
+        "gender": "male",
+        "age": "28",
         "address": "5, PL61DG",
+        "password": "p",
         "requesttype": "Create"
       }
     ]
@@ -106,17 +108,20 @@
       {
         "doctorid": "D0001",
         "patientid": "P0001",
-        "date": "13/12/2019"
+        "date": "13/12/2019",
+        "attended":  "false"
       },
       {
         "doctorid": "D0002",
         "patientid": "P0001",
-        "date": "15/12/2019"
+        "date": "15/12/2019",
+        "attended": "true"
       },
       {
         "doctorid": "D0001",
         "patientid": "P0002",
-        "date": "28/12/2019"
+        "date": "28/12/2019",
+        "attended": "false"
       }
     ]
   },

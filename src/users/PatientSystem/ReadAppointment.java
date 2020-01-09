@@ -27,16 +27,18 @@ public class ReadAppointment {
             try {
                 JSONObject curItem = dataArray.getJSONObject(i);
                 JSONArray appointments = curItem.getJSONArray("appointments");
-
                 for (int j = 0; j < appointments.length(); j++){
                     var currentApp = appointments.getJSONObject(j);
-                    String patId = currentApp.getString("patientid");
+                    String attended = currentApp.getString("attended");
+                    if (Objects.equals(attended, "false")){
+                        String patId = currentApp.getString("patientid");
 
-                    if(Objects.equals(patId, patientID)){
-                        doctorId = currentApp.getString("doctorid");
-                        patientId = currentApp.getString("patientid");
-                        date = currentApp.getString("date");
-                        appString += ("Doctor: "+doctorId+"\n To see: "+patientId+"\n On date: "+date+" \n\n");
+                        if(Objects.equals(patId, patientID)){
+                            doctorId = currentApp.getString("doctorid");
+                            patientId = currentApp.getString("patientid");
+                            date = currentApp.getString("date");
+                            appString += ("Doctor: "+doctorId+"\n To see: "+patientId+"\n On date: "+date+" \n\n");
+                        }
                     }
                 }
             }

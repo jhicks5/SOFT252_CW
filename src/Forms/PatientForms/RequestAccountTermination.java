@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package Forms.PatientForms;
-
+import usersdata.PatientUser;
+import java.util.*;
+import javax.swing.JOptionPane;
+import users.PatientSystem.RequestAccTermination;
 /**
  *
  * @author joshh
@@ -27,7 +30,6 @@ public class RequestAccountTermination extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtPass = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         chkbxConfirm = new javax.swing.JCheckBox();
         btnreqTermination = new javax.swing.JButton();
@@ -35,6 +37,9 @@ public class RequestAccountTermination extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
         lblPass = new javax.swing.JLabel();
+        lblPass1 = new javax.swing.JLabel();
+        pssPass = new javax.swing.JPasswordField();
+        pssPassConfirm = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,6 +51,11 @@ public class RequestAccountTermination extends javax.swing.JFrame {
         });
 
         btnreqTermination.setText("Request termination");
+        btnreqTermination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreqTerminationActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -60,35 +70,40 @@ public class RequestAccountTermination extends javax.swing.JFrame {
 
         lblPass.setText("Password:");
 
+        lblPass1.setText("Confirm Password:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPass)
-                    .addComponent(lblUsername))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBack)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnreqTermination)
-                        .addGap(130, 130, 130))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(chkbxConfirm)
-                        .addGap(68, 68, 68))))
+                        .addGap(0, 73, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPass)
+                                    .addComponent(lblUsername)
+                                    .addComponent(lblPass1))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUsername)
+                                    .addComponent(pssPass)
+                                    .addComponent(pssPassConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnreqTermination)
+                                    .addGap(130, 130, 130))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(chkbxConfirm)
+                                    .addGap(68, 68, 68)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,17 +112,21 @@ public class RequestAccountTermination extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle)
                     .addComponent(btnBack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPass)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addComponent(chkbxConfirm)
+                    .addComponent(pssPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPass))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPass1)
+                    .addComponent(pssPassConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(chkbxConfirm)
+                .addGap(34, 34, 34)
                 .addComponent(btnreqTermination)
                 .addGap(26, 26, 26))
         );
@@ -124,6 +143,25 @@ public class RequestAccountTermination extends javax.swing.JFrame {
         this.dispose();
         new PatientHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnreqTerminationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreqTerminationActionPerformed
+        // TODO add your handling code here:
+        if(chkbxConfirm.isSelected()){
+            String p = PatientUser.userID;
+            String givenId = txtUsername.getText();
+            if (Objects.equals(p, givenId)){
+                RequestAccTermination r = new RequestAccTermination();
+                Boolean complete = r.appendToFile(givenId);
+                if (complete = true){
+                JOptionPane.showMessageDialog(null, "Successfully submitted account removal request", "Success", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You must tick the box to acknowledge account removal", "Checkbox not filled", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnreqTerminationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,9 +203,11 @@ public class RequestAccountTermination extends javax.swing.JFrame {
     private javax.swing.JButton btnreqTermination;
     private javax.swing.JCheckBox chkbxConfirm;
     private javax.swing.JLabel lblPass;
+    private javax.swing.JLabel lblPass1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField pssPass;
+    private javax.swing.JPasswordField pssPassConfirm;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package Forms.PatientForms;
 import users.PatientSystem.AppendFeedback;
 import java.util.*;
 import javax.swing.JOptionPane;
+import usersdata.DoctorUser;
 /**
  *
  * @author joshh
@@ -150,7 +151,7 @@ public class GiveFeedback extends javax.swing.JFrame {
         // TODO add your handling code here:
         AppendFeedback g = new AppendFeedback();
         ArrayList<String> appoint = new ArrayList<String>();
-        appoint = g.getDocNames();
+        appoint = g.getDocIds();
         for(int i = 0; i < appoint.size(); i++){
             cmbxDocId.addItem(appoint.get(i));
         }

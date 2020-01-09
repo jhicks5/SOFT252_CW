@@ -4,7 +4,14 @@
  * and open the template in the editor.
  */
 package Forms.PatientForms;
-
+import java.time.*;    
+import java.util.*;
+import java.text.*;
+import javax.swing.JOptionPane;
+import org.joda.time.*;
+import users.PatientSystem.AppendFeedback;
+import usersdata.PatientUser;
+import users.PatientSystem.ReadAppRequest;
 /**
  *
  * @author joshh
@@ -36,18 +43,24 @@ public class RequestAppointment extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         lblTitle.setText("Request appointment");
 
-        cmbxDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         lblDoctors.setText("Doctors:");
 
-        lblDates.setText("Available Dates:");
-
-        cmbxDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lblDates.setText("Potential Date:");
 
         btnRequest.setText("Request appointment");
+        btnRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequestActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -75,9 +88,9 @@ public class RequestAppointment extends javax.swing.JFrame {
                                     .addComponent(lblDates)
                                     .addComponent(lblDoctors))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbxDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbxDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbxDate, 0, 70, Short.MAX_VALUE)
+                                    .addComponent(cmbxDoctor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(132, 132, 132)
                                 .addComponent(btnRequest)))
@@ -101,7 +114,7 @@ public class RequestAppointment extends javax.swing.JFrame {
                     .addComponent(cmbxDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addComponent(btnRequest)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,6 +125,43 @@ public class RequestAppointment extends javax.swing.JFrame {
         this.dispose();
         new PatientHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
+        // TODO add your handling code here:
+        ReadAppRequest r = new ReadAppRequest();
+        
+        String patId = PatientUser.userID;
+        String docId = cmbxDoctor.getSelectedItem().toString();
+        String date = cmbxDate.getSelectedItem().toString();
+        
+        Boolean complete = r.appendToFile(patId, docId, date);
+        if (complete = true){
+            JOptionPane.showMessageDialog(null, "Appointment Successfully Requested", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnRequestActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        DateTime dt = new DateTime();
+        int day = dt.getDayOfMonth();
+        for (int i = 0; i < 15; i++){
+            String dayStr = Integer.toString(day);
+            if (day < 10){
+                dayStr = ("0"+dayStr);
+            }
+            cmbxDate.addItem(dayStr);
+            day += 1;  
+        }
+        
+        AppendFeedback g = new AppendFeedback();
+        ArrayList<String> doctors = new ArrayList<String>();
+        doctors = g.getDocIds();
+        for(int i = 0; i < doctors.size(); i++){
+            cmbxDoctor.addItem(doctors.get(i));
+        }
+        
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
