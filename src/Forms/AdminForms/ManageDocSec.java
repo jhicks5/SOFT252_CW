@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package Forms.AdminForms;
-
+import java.util.*;
+import javax.swing.JOptionPane;
+import users.AdminSystem.AddRemDocSec;
+import usersdata.AdminUser;
 /**
  *
  * @author joshh
@@ -28,21 +31,32 @@ public class ManageDocSec extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         lblTitle = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblSurname = new javax.swing.JLabel();
         txtSurname = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        lblPass = new javax.swing.JLabel();
-        lblPassCon = new javax.swing.JLabel();
-        txtPassCon = new javax.swing.JTextField();
-        txtPass = new javax.swing.JTextField();
+        txtHouseNo = new javax.swing.JTextField();
+        lblUserPass = new javax.swing.JLabel();
+        lblUserPassCon = new javax.swing.JLabel();
         radAdd = new javax.swing.JRadioButton();
         radRemove = new javax.swing.JRadioButton();
         btnConfirm = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        txtPostcode = new javax.swing.JTextField();
+        lblAddress1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        pssUserPass = new javax.swing.JPasswordField();
+        pssUserPassCon = new javax.swing.JPasswordField();
+        pssAdminPass = new javax.swing.JPasswordField();
+        pssAdminPassCon = new javax.swing.JPasswordField();
+        lblPass1 = new javax.swing.JLabel();
+        lblPassCon1 = new javax.swing.JLabel();
+        radSecretary = new javax.swing.JRadioButton();
+        radDoctor = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,36 +64,65 @@ public class ManageDocSec extends javax.swing.JFrame {
 
         lblName.setText("Name");
 
-        txtName.setText("jTextField1");
-
         lblSurname.setText("Surname");
 
-        txtSurname.setText("jTextField2");
+        lblAddress.setText("House Name/no.");
 
-        lblAddress.setText("Address");
+        lblUserPass.setText("User Password");
 
-        txtAddress.setText("jTextField2");
-
-        lblPass.setText("Password");
-
-        lblPassCon.setText("Confirm Password");
-
-        txtPassCon.setText("jTextField2");
-
-        txtPass.setText("jTextField2");
+        lblUserPassCon.setText("Confirm Password");
 
         buttonGroup1.add(radAdd);
         radAdd.setText("Add");
+        radAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radAddActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(radRemove);
         radRemove.setText("Remove");
+        radRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radRemoveActionPerformed(evt);
+            }
+        });
 
         btnConfirm.setText("Confirm");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        lblAddress1.setText("Postcode");
+
+        jLabel1.setText("ID");
+
+        lblPass1.setText("Admin Password");
+
+        lblPassCon1.setText("Confirm Password");
+
+        buttonGroup2.add(radSecretary);
+        radSecretary.setText("Secretary");
+        radSecretary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radSecretaryActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(radDoctor);
+        radDoctor.setText("Doctor");
+        radDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radDoctorActionPerformed(evt);
             }
         });
 
@@ -97,34 +140,55 @@ public class ManageDocSec extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblSurname)
-                                            .addComponent(lblName)
-                                            .addComponent(lblAddress)
-                                            .addComponent(radAdd))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(radRemove)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblPass)
-                                            .addComponent(lblPassCon))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPassCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(4, 4, 4))))
+                                .addGap(199, 199, 199)
+                                .addComponent(btnConfirm))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(163, 163, 163)
-                                .addComponent(btnConfirm)))
-                        .addGap(0, 117, Short.MAX_VALUE)))
+                                .addGap(81, 81, 81)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSurname)
+                                    .addComponent(lblName)
+                                    .addComponent(lblAddress)
+                                    .addComponent(jLabel1))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblAddress1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(radAdd)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radRemove))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(80, 80, 80)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblPass1)
+                                            .addComponent(lblPassCon1))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(pssAdminPassCon)
+                                            .addComponent(pssAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(radDoctor)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radSecretary)))))
+                        .addGap(0, 24, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUserPass)
+                    .addComponent(lblUserPassCon))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pssUserPassCon)
+                    .addComponent(pssUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,11 +197,19 @@ public class ManageDocSec extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle)
                     .addComponent(btnBack))
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(radAdd)
                     .addComponent(radRemove))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radDoctor)
+                    .addComponent(radSecretary))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,18 +220,30 @@ public class ManageDocSec extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAddress)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress1)
+                    .addComponent(txtPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPass)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassCon)
-                    .addComponent(txtPassCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnConfirm)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUserPass)
+                            .addComponent(pssUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUserPassCon)
+                            .addComponent(pssUserPassCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConfirm))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPass1)
+                            .addComponent(pssAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassCon1)
+                            .addComponent(pssAdminPassCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -170,6 +254,88 @@ public class ManageDocSec extends javax.swing.JFrame {
         this.dispose();
         new AdminHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        AddRemDocSec ar = new AddRemDocSec();
+        String pass = AdminUser.pass;
+        System.out.println(pass);
+        if(Objects.equals(pssUserPass.getText(), pssUserPassCon.getText()) &&
+                Objects.equals(pssAdminPass.getText(), pssAdminPassCon.getText()) &&
+                Objects.equals(pssAdminPass.getText(), pass)){  
+            if (radAdd.isSelected() == true){
+                if(txtName.getText().trim().length() != 0 &&
+                        txtSurname.getText().trim().length() != 0 &&
+                        txtHouseNo.getText().trim().length() != 0 &&
+                        txtPostcode.getText().trim().length() != 0){
+                    System.out.println("Add was Selected");
+                    String selection = "add";
+                    String name = (txtName.getText()+" "+txtSurname.getText());
+                    String address = (txtHouseNo.getText()+" "+txtPostcode.getText());
+                    String password = pssUserPass.getText();
+                    
+                    if(radDoctor.isSelected() == true){
+                        ar.addRemDocSec("doctor", null, selection, name, address, password);
+                    }
+                    if(radSecretary.isSelected() == true){
+                        ar.addRemDocSec("secretary", null, selection, name, address, password);                        
+                    }
+
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Please fill all available fields", "Error", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            
+            if (radRemove.isSelected() == true){
+                if(txtId.getText().trim().length() != 0){
+                    System.out.println("Remove was Selected");
+                    String selection = "remove";
+                    String id = txtId.getText();
+                    String password = pssUserPass.getText();
+
+                    if(radDoctor.isSelected() == true){
+                        ar.addRemDocSec("doctor", id, selection, null, null, password);
+                    }
+                    if(radSecretary.isSelected() == true){
+                        ar.addRemDocSec("secretary", id, selection, null, null, password);                        
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Please fill all available fields", "Error", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Passwords do not match or Admin password is incorrect", "Password Incorrect", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void radAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAddActionPerformed
+        // TODO add your handling code here:
+        txtId.setEnabled(false);
+        txtName.setEnabled(true);
+        txtSurname.setEnabled(true);
+        txtHouseNo.setEnabled(true);
+        txtPostcode.setEnabled(true);
+    }//GEN-LAST:event_radAddActionPerformed
+
+    private void radRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radRemoveActionPerformed
+        // TODO add your handling code here:
+        txtId.setEnabled(true);
+        txtName.setEnabled(false);
+        txtSurname.setEnabled(false);
+        txtHouseNo.setEnabled(false);
+        txtPostcode.setEnabled(false);
+    }//GEN-LAST:event_radRemoveActionPerformed
+
+    private void radSecretaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radSecretaryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radSecretaryActionPerformed
+
+    private void radDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radDoctorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radDoctorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,18 +376,29 @@ public class ManageDocSec extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblAddress1;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPass;
-    private javax.swing.JLabel lblPassCon;
+    private javax.swing.JLabel lblPass1;
+    private javax.swing.JLabel lblPassCon1;
     private javax.swing.JLabel lblSurname;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUserPass;
+    private javax.swing.JLabel lblUserPassCon;
+    private javax.swing.JPasswordField pssAdminPass;
+    private javax.swing.JPasswordField pssAdminPassCon;
+    private javax.swing.JPasswordField pssUserPass;
+    private javax.swing.JPasswordField pssUserPassCon;
     private javax.swing.JRadioButton radAdd;
+    private javax.swing.JRadioButton radDoctor;
     private javax.swing.JRadioButton radRemove;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JRadioButton radSecretary;
+    private javax.swing.JTextField txtHouseNo;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPass;
-    private javax.swing.JTextField txtPassCon;
+    private javax.swing.JTextField txtPostcode;
     private javax.swing.JTextField txtSurname;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,10 +5,17 @@
  */
 package users.SecretarySystem;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Objects;
+import javax.swing.JOptionPane;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import usersdata.AllData;
+
 /**
  *
  * @author joshh
  */
 public class ApproveAppRequest {
-    
 }

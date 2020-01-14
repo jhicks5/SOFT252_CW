@@ -5,6 +5,11 @@
  */
 package Forms.AdminForms;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import users.PatientSystem.AppendFeedback;
+import users.AdminSystem.ProvideFeedback;
+
 /**
  *
  * @author joshh
@@ -31,25 +36,44 @@ public class DoctorFeedback extends javax.swing.JFrame {
         cmbxDocID = new javax.swing.JComboBox<>();
         lblPatientComment = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtPaneComments = new javax.swing.JTextPane();
+        txtComments = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
-        txtFieldFeedback = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtNotes = new javax.swing.JTextPane();
+        cmbxRating = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         lblDocID.setText("Doctor ID");
 
-        cmbxDocID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbxDocID.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbxDocIDItemStateChanged(evt);
+            }
+        });
 
         lblPatientComment.setText("Comments from patient:");
 
-        jScrollPane2.setViewportView(txtPaneComments);
+        txtComments.setEditable(false);
+        jScrollPane2.setViewportView(txtComments);
 
         jLabel2.setText("Enter feedback");
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +81,14 @@ public class DoctorFeedback extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setViewportView(txtNotes);
+
+        cmbxRating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        jLabel1.setText("Rating:");
+
+        jLabel3.setText("Notes:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,11 +108,16 @@ public class DoctorFeedback extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPatientComment))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(97, 97, 97))
-                            .addComponent(txtFieldFeedback)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbxRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSubmit)))
@@ -105,11 +142,18 @@ public class DoctorFeedback extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                    .addComponent(txtFieldFeedback))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbxRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSubmit)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,6 +164,35 @@ public class DoctorFeedback extends javax.swing.JFrame {
         this.dispose();
         new AdminHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        AppendFeedback a = new AppendFeedback();
+        ArrayList<String> appoint = new ArrayList<String>();
+        appoint = a.getDocIds();
+        for(int i = 0; i < appoint.size(); i++){
+            cmbxDocID.addItem(appoint.get(i));
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void cmbxDocIDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbxDocIDItemStateChanged
+        // TODO add your handling code here:
+        txtComments.setText("");
+        ProvideFeedback p = new ProvideFeedback();
+        String appoint = p.getFeedback(cmbxDocID.getSelectedItem().toString());
+        txtComments.setText(appoint);
+    }//GEN-LAST:event_cmbxDocIDItemStateChanged
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        AppendFeedback a = new AppendFeedback();
+        a.appendToFile(cmbxDocID.getSelectedItem().toString(),
+                cmbxRating.getSelectedItem().toString(),
+                txtNotes.getText());
+        JOptionPane.showMessageDialog(null, "Feedback successfully submitted!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        new DoctorFeedback().setVisible(true);
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,11 +233,15 @@ public class DoctorFeedback extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox<String> cmbxDocID;
+    private javax.swing.JComboBox<String> cmbxRating;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDocID;
     private javax.swing.JLabel lblPatientComment;
-    private javax.swing.JTextField txtFieldFeedback;
-    private javax.swing.JTextPane txtPaneComments;
+    private javax.swing.JTextPane txtComments;
+    private javax.swing.JTextPane txtNotes;
     // End of variables declaration//GEN-END:variables
 }

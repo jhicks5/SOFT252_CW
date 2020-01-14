@@ -11,7 +11,7 @@ import Forms.SecretaryForms.*;
  */
 public class SecretaryUser implements UserInt{
     String userID = "";
-    String name = "";
+    public static String name = "";
     String address = "";
     String pass = "";
     

@@ -168,6 +168,8 @@ public class GiveFeedback extends javax.swing.JFrame {
         if(complete = true){
             JOptionPane.showMessageDialog(null, "Feedback successfully submitted!", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
+        this.dispose();
+        new GiveFeedback().setVisible(true);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**

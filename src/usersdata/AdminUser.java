@@ -14,7 +14,7 @@ public class AdminUser implements UserInt
     String userID = "";
     String name = "";
     String address = "";
-    String pass = "";
+    public static String pass = "";
     
     public AdminUser(String userID, String name, String address, String pass)
     {

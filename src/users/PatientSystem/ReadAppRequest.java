@@ -10,15 +10,16 @@ import java.io.PrintWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import usersdata.AllData;
-import org.joda.time.*;
+import java.util.*;
 import usersdata.PatientUser;
+import usersdata.SecretaryUser;
 /**
  *
  * @author joshh
  */
 public class ReadAppRequest {
-    public boolean appendToFile(String patId,String docId,String date){
-        String patID = PatientUser.userID;
+    public boolean appendToFile(String patId, String docId, String date){
+        //String patID = PatientUser.userID;
         JSONObject newData = new JSONObject();
         JSONArray appoints = new JSONArray();
         String data = AllData.getJSONData();
@@ -32,20 +33,14 @@ public class ReadAppRequest {
                 newData.put("doctorid", docId);
                 newData.put("patientid", patId);
                 newData.put("attended", "false");
-                
-                DateTime dt = new DateTime();
-                int month = dt.getMonthOfYear();
-                String monthStr = "";
-                if (month < 10){
-                    monthStr = ("0"+Integer.toString(month));
+                if(Objects.equals(SecretaryUser.name, "")){
+                    newData.put("requested", "pending");
+                    
                 }
                 else{
-                    monthStr = (Integer.toString(month));
+                    newData.put("requested", "approved");
                 }
-                String year = Integer.toString(dt.getYear());
-                String formatDate = (date+"/"+monthStr+"/"+year);
-                newData.put("date", formatDate);
-                newData.put("requested", "true");
+                newData.put("date", date);
                 appoints.put(newData);
                 //dataArray.put(appoints);
                 break;
@@ -59,7 +54,7 @@ public class ReadAppRequest {
         System.out.println(dataArray);
         try
         {
-            PrintWriter out = new PrintWriter("C:\\Users\\joshh\\Documents\\NetBeansProjects\\SOFT252_CW\\data\\testJSON.json");
+            PrintWriter out = new PrintWriter(".\\data\\testJSON.json");
             out.println(dataToAppend);
             out.close();
         }

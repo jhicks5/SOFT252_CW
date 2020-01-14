@@ -102,7 +102,7 @@ public class User implements UserInt{
                 }
             }
             AdminUser a = new AdminUser(id, name, address, pass);
-            System.out.println("ID is: "+id+"Name: "+name+address);
+            System.out.println("ID is: "+id+"Name: "+name+address+"  "+pass);
           
             if(loginToken == true){
                 a.adminLogin();

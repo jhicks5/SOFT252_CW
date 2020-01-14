@@ -47,12 +47,12 @@ public class AppendFeedback {
             try {
                 JSONObject curItem = dataArray.getJSONObject(i);
                 docFeedback = curItem.getJSONArray("docfeedback");
-                //newData = docFeedback.getJSONObject(0);
+
                 newData.put("doctorid", docId);
                 newData.put("rating", rating);
                 newData.put("notes", notes);
                 docFeedback.put(newData);
-                //dataArray.put(docFeedback);
+
                 break;
                 }
             catch(Exception e){
@@ -60,11 +60,10 @@ public class AppendFeedback {
             }
         }
         String dataToAppend = dataArray.toString();
-        System.out.println(dataToAppend);
-        System.out.println(dataArray);
+        
         try
         {
-            PrintWriter out = new PrintWriter("C:\\Users\\joshh\\Documents\\NetBeansProjects\\SOFT252_CW\\data\\testJSON.json");
+            PrintWriter out = new PrintWriter("./data/testJSON.json");
             out.println(dataToAppend);
             out.close();
         }

@@ -19,13 +19,14 @@ public class ReadHistory {
     protected String doctorId;
     protected String patientId;
     protected String date;
+    protected String note;
     
-    public String getAppointment(){
+    public String getAppointment(String patientID){
     String appString = "";
     String data = AllData.getJSONData();
     JSONArray dataArray = new JSONArray(data);
 
-    String patientID = PatientUser.userID;
+
     for (int i = 0; i < data.length(); i++){
         try {
             JSONObject curItem = dataArray.getJSONObject(i);
@@ -40,7 +41,8 @@ public class ReadHistory {
                         doctorId = currentApp.getString("doctorid");
                         patientId = currentApp.getString("patientid");
                         date = currentApp.getString("date");
-                        appString += ("Doctor: "+doctorId+"\n Saw: "+patientId+"\n On date: "+date+" \n\n");
+                        note = currentApp.getString("notes");
+                        appString += ("Doctor: "+doctorId+"\n Saw: "+patientId+"\n On date: "+date+" \n  Notes: \n"+note+"\n\n");
                     }
                 }
             }

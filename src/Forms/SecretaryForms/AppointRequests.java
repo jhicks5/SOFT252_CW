@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package Forms.SecretaryForms;
-
+import users.DoctorSystem.AppointmentControlSys;
+import java.util.*;
 /**
  *
  * @author joshh
  */
 public class AppointRequests extends javax.swing.JFrame {
-
+    AppointmentControlSys c = new AppointmentControlSys();
     /**
      * Creates new form RecieveAppointsRequest
      */
@@ -27,23 +28,21 @@ public class AppointRequests extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPrevious = new javax.swing.JButton();
         btnApprove = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblPatientID = new javax.swing.JLabel();
         btnDeny = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        txtPatientID = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtAreaPatient = new javax.swing.JTextArea();
-        btnNext = new javax.swing.JButton();
+        txtAreaApp = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        cmbxAppDate = new javax.swing.JComboBox<>();
+        cmbxPatId = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnPrevious.setText("<<");
-        btnPrevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreviousActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
@@ -59,6 +58,11 @@ public class AppointRequests extends javax.swing.JFrame {
         lblPatientID.setText("Patient ID: ");
 
         btnDeny.setText("Deny");
+        btnDeny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDenyActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -67,11 +71,23 @@ public class AppointRequests extends javax.swing.JFrame {
             }
         });
 
-        txtAreaPatient.setColumns(20);
-        txtAreaPatient.setRows(5);
-        jScrollPane2.setViewportView(txtAreaPatient);
+        txtAreaApp.setColumns(20);
+        txtAreaApp.setRows(5);
+        jScrollPane2.setViewportView(txtAreaApp);
 
-        btnNext.setText(">>");
+        jLabel1.setText("Appointment Date:");
+
+        cmbxAppDate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbxAppDateItemStateChanged(evt);
+            }
+        });
+
+        cmbxPatId.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbxPatIdItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,30 +96,30 @@ public class AppointRequests extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(lblPatientID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(btnDeny)
                         .addGap(18, 18, 18)
                         .addComponent(btnApprove))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btnPrevious)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNext)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addGap(96, 96, 96)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(lblPatientID))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbxAppDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbxPatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(130, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,14 +131,14 @@ public class AppointRequests extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPatientID)
-                    .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(cmbxPatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrevious)
-                    .addComponent(btnNext))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(cmbxAppDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDeny)
                     .addComponent(btnApprove))
@@ -131,10 +147,6 @@ public class AppointRequests extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPreviousActionPerformed
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
@@ -145,6 +157,34 @@ public class AppointRequests extends javax.swing.JFrame {
         this.dispose();
         new SecretaryHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDenyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDenyActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        ArrayList<String> patIds = c.getPatientIds();
+        cmbxPatId.removeAllItems();
+        cmbxAppDate.removeAllItems();
+        for(int i = 0; i < patIds.size(); i++){
+            cmbxPatId.addItem(patIds.get(i));
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void cmbxPatIdItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbxPatIdItemStateChanged
+        // TODO add your handling code here:
+        cmbxAppDate.removeAllItems();
+        String selectedPat = cmbxPatId.getSelectedItem().toString();
+        ArrayList<String> appDates = c.getPatientApps(selectedPat);
+        for(int i = 0; i < appDates.size(); i++){
+            cmbxAppDate.addItem(appDates.get(i));
+        }
+    }//GEN-LAST:event_cmbxPatIdItemStateChanged
+
+    private void cmbxAppDateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbxAppDateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbxAppDateItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -186,12 +226,12 @@ public class AppointRequests extends javax.swing.JFrame {
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeny;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnPrevious;
+    private javax.swing.JComboBox<String> cmbxAppDate;
+    private javax.swing.JComboBox<String> cmbxPatId;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblPatientID;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextArea txtAreaPatient;
-    private javax.swing.JTextField txtPatientID;
+    private javax.swing.JTextArea txtAreaApp;
     // End of variables declaration//GEN-END:variables
 }

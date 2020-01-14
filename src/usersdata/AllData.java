@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
  */
 public class AllData {
     public static String getJSONData() {
-        File file = new File("C:\\Users\\joshh\\Documents\\NetBeansProjects\\SOFT252_CW\\data\\testJSON.json");
+        File file = new File("./data/testJSON.json");
         String result = "";
         try (Scanner sc = new Scanner(file, StandardCharsets.UTF_8.name())){
             while(sc.hasNext()) {

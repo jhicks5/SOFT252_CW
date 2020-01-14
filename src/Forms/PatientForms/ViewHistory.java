@@ -5,6 +5,8 @@
  */
 package Forms.PatientForms;
 import users.PatientSystem.ReadHistory;
+import usersdata.PatientUser;
+
 /**
  *
  * @author joshh
@@ -99,8 +101,9 @@ public class ViewHistory extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
+        String patientID = PatientUser.userID;
         ReadHistory r = new ReadHistory();
-        String appoint = r.getAppointment();
+        String appoint = r.getAppointment(patientID);
         txtHistory.setText(appoint);
     }//GEN-LAST:event_formWindowActivated
 

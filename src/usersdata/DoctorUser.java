@@ -10,7 +10,7 @@ import Forms.DoctorForms.*;
  * @author joshh
  */
 public class DoctorUser implements UserInt {
-    String userID = "";
+    public static String userID = "";
     String name = "";
     String address = "";
     String pass = "";

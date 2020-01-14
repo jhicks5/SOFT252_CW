@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Forms.PatientForms;
-import java.time.*;    
+package Forms.PatientForms;   
 import java.util.*;
-import java.text.*;
 import javax.swing.JOptionPane;
-import org.joda.time.*;
 import users.PatientSystem.AppendFeedback;
 import usersdata.PatientUser;
 import users.PatientSystem.ReadAppRequest;
@@ -38,9 +35,10 @@ public class RequestAppointment extends javax.swing.JFrame {
         cmbxDoctor = new javax.swing.JComboBox<>();
         lblDoctors = new javax.swing.JLabel();
         lblDates = new javax.swing.JLabel();
-        cmbxDate = new javax.swing.JComboBox<>();
         btnRequest = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        txtDate = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -69,6 +67,14 @@ public class RequestAppointment extends javax.swing.JFrame {
             }
         });
 
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("dd/MM/yyyy");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,18 +89,20 @@ public class RequestAppointment extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(132, 132, 132)
+                                .addComponent(btnRequest))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblDates)
                                     .addComponent(lblDoctors))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cmbxDate, 0, 70, Short.MAX_VALUE)
-                                    .addComponent(cmbxDoctor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(132, 132, 132)
-                                .addComponent(btnRequest)))
-                        .addGap(0, 121, Short.MAX_VALUE)))
+                                    .addComponent(cmbxDoctor, 0, 70, Short.MAX_VALUE)
+                                    .addComponent(txtDate))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 94, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,10 +119,11 @@ public class RequestAppointment extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDates)
-                    .addComponent(cmbxDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(61, 61, 61)
                 .addComponent(btnRequest)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,7 +141,7 @@ public class RequestAppointment extends javax.swing.JFrame {
         
         String patId = PatientUser.userID;
         String docId = cmbxDoctor.getSelectedItem().toString();
-        String date = cmbxDate.getSelectedItem().toString();
+        String date = txtDate.getText();
         
         Boolean complete = r.appendToFile(patId, docId, date);
         if (complete = true){
@@ -143,17 +152,6 @@ public class RequestAppointment extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        DateTime dt = new DateTime();
-        int day = dt.getDayOfMonth();
-        for (int i = 0; i < 15; i++){
-            String dayStr = Integer.toString(day);
-            if (day < 10){
-                dayStr = ("0"+dayStr);
-            }
-            cmbxDate.addItem(dayStr);
-            day += 1;  
-        }
-        
         AppendFeedback g = new AppendFeedback();
         ArrayList<String> doctors = new ArrayList<String>();
         doctors = g.getDocIds();
@@ -162,6 +160,10 @@ public class RequestAppointment extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,10 +203,11 @@ public class RequestAppointment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRequest;
-    private javax.swing.JComboBox<String> cmbxDate;
     private javax.swing.JComboBox<String> cmbxDoctor;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblDates;
     private javax.swing.JLabel lblDoctors;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtDate;
     // End of variables declaration//GEN-END:variables
 }

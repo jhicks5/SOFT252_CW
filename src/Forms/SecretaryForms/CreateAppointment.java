@@ -5,6 +5,11 @@
  */
 package Forms.SecretaryForms;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import users.DoctorSystem.AppointmentControlSys;
+import users.PatientSystem.AppendFeedback;
+import users.PatientSystem.ReadAppRequest;
 /**
  *
  * @author joshh
@@ -29,31 +34,36 @@ public class CreateAppointment extends javax.swing.JFrame {
 
         lblFormTitle = new javax.swing.JLabel();
         lblPatientName = new javax.swing.JLabel();
-        txtPatientName = new javax.swing.JTextField();
         lblDocName = new javax.swing.JLabel();
         lblAppTime = new javax.swing.JLabel();
         btnCreateApp = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        cmbxDocName = new javax.swing.JComboBox<>();
-        cmbxAppTime = new javax.swing.JComboBox<>();
+        cmbxDocId = new javax.swing.JComboBox<>();
+        txtDate = new javax.swing.JTextField();
+        cmbxPatId = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         lblFormTitle.setText("Create Appointment");
 
         lblPatientName.setText("Patient ID:");
 
-        txtPatientName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPatientNameActionPerformed(evt);
-            }
-        });
+        lblDocName.setText("Doctor ID:");
 
-        lblDocName.setText("Doctor Name:");
-
-        lblAppTime.setText("Select Time:");
+        lblAppTime.setText("Date:");
 
         btnCreateApp.setText("Create Appointment");
+        btnCreateApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAppActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -62,87 +72,115 @@ public class CreateAppointment extends javax.swing.JFrame {
             }
         });
 
-        cmbxDocName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbxDocName.addActionListener(new java.awt.event.ActionListener() {
+        cmbxDocId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbxDocNameActionPerformed(evt);
+                cmbxDocIdActionPerformed(evt);
             }
         });
 
-        cmbxAppTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel1.setText("dd/MM/yyyy");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPatientName)
+                    .addComponent(lblDocName)
+                    .addComponent(lblAppTime))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPatientName)
-                            .addComponent(lblDocName)
-                            .addComponent(lblAppTime)
-                            .addComponent(btnBack))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbxAppTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbxDocName, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(btnCreateApp))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblFormTitle)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1))
+                    .addComponent(cmbxDocId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbxPatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(92, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblFormTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(28, 28, 28))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCreateApp)
+                .addGap(132, 132, 132))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFormTitle)
+                    .addComponent(btnBack))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPatientName)
+                    .addComponent(cmbxPatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbxDocId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDocName))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAppTime)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(39, 39, 39)
-                .addComponent(lblFormTitle)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPatientName))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbxDocName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDocName))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAppTime)
-                            .addComponent(cmbxAppTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 121, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCreateApp)
-                            .addComponent(btnBack))
-                        .addGap(50, 50, 50))))
+                .addComponent(btnCreateApp)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPatientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientNameActionPerformed
+    private void cmbxDocIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxDocIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPatientNameActionPerformed
-
-    private void cmbxDocNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxDocNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbxDocNameActionPerformed
+    }//GEN-LAST:event_cmbxDocIdActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.dispose();
         new SecretaryHome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnCreateAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppActionPerformed
+        // TODO add your handling code here:
+        ReadAppRequest r = new ReadAppRequest();
+        String patId = cmbxPatId.getSelectedItem().toString();
+        String docId = cmbxDocId.getSelectedItem().toString();
+        String date = txtDate.getText();
+        
+        if (date.isBlank() == false){
+            r.appendToFile(patId, docId, date);
+            JOptionPane.showMessageDialog(null, "Appointment for: "+patId+
+                " To See Doctor: "+docId+" On date: "+date+" Requested Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You must enter a date", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCreateAppActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        cmbxPatId.removeAllItems();
+        AppointmentControlSys c = new AppointmentControlSys();
+        ArrayList<String> patientIds = c.getPatientIds();
+        for (int i = 0; i < patientIds.size(); i++){
+            cmbxPatId.addItem(patientIds.get(i));
+        }
+        
+        cmbxDocId.removeAllItems();
+        AppendFeedback a = new AppendFeedback();
+        ArrayList<String> docIds = a.getDocIds();
+        for (int i = 0; i < docIds.size(); i++){
+            cmbxDocId.addItem(docIds.get(i));
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -183,12 +221,13 @@ public class CreateAppointment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateApp;
-    private javax.swing.JComboBox<String> cmbxAppTime;
-    private javax.swing.JComboBox<String> cmbxDocName;
+    private javax.swing.JComboBox<String> cmbxDocId;
+    private javax.swing.JComboBox<String> cmbxPatId;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAppTime;
     private javax.swing.JLabel lblDocName;
     private javax.swing.JLabel lblFormTitle;
     private javax.swing.JLabel lblPatientName;
-    private javax.swing.JTextField txtPatientName;
+    private javax.swing.JTextField txtDate;
     // End of variables declaration//GEN-END:variables
 }

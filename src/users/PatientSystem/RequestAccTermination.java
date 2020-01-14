@@ -40,7 +40,7 @@ public class RequestAccTermination {
     System.out.println(dataArray);
     try
     {
-        PrintWriter out = new PrintWriter("C:\\Users\\joshh\\Documents\\NetBeansProjects\\SOFT252_CW\\data\\testJSON.json");
+        PrintWriter out = new PrintWriter(".data/testJSON.json");
         out.println(dataToAppend);
         out.close();
     }
